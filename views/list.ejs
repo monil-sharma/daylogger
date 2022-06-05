@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="/css/todoliststyles.css">
+
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+
+</head>
+<body>
+  <div style="display: flex; align-items: center;"> 
+    
+    <div style=" display: flex; align-items: center; margin-bottom: 1%;">
+      <a href="/dashboard"><button type="button" class="btn btn-info btn-rounded btn-lg " style="background-color: #fff; color: #1abc9c;"><i class="fas fa-caret-left fa-lg"></i></i></button></a>
+  </div>
+    <div class="box" id="heading">
+      <h1><%= listTitle %>!</h1>
+    </div>
+    
+    <div style=" display: flex; align-items: center; margin-bottom: 1%;">
+      <a href="/logout"><button type="button" class="btn btn-info btn-rounded btn-lg "><i class="fas fa-sign-out-alt fa-lg"></i></button></a>
+  </div>
+
+  </div>
+
+<div class="box">
+    <% newListItems.forEach((i)=> { %>
+      <form action="/todolist/delete" method="post">
+        <div class="item">
+          <input type="checkbox" name="checkbox" value="<%= i._id%>" onchange="this.form.submit()">
+          <p><%=  i.listItem %></p>
+        </div>
+        <input type="hidden" name="listName" value="<%=listTitle%>">
+      </form>
+      
+      <% }) %>
+
+      <form class="item" action="/todolist" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit">+</button>
+      </form>
+  </div>
+
+</body>
+
+<footer>
+    ©Monil Sharma
+</footer>
+
+</html>

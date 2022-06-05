@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Day Logger</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+      <style>
+        *{
+          padding: 0px;
+          margin: 0px;
+        }
+        .navbar{
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 5px;
+          border-bottom-left-radius: 5px;
+        }
+
+        .body{
+          font-family: 'Times New Roman', Times, serif;
+          
+
+        }
+
+        #acsetting{
+          padding-left: 0;
+        }
+
+        #bodyset{
+          padding: 5% 3% 0% 5%;
+        }
+
+        #formsetting{
+          padding-top: 10vh;
+        }
+
+        
+        body{
+            background-color: #c7d9fa;
+        }
+        p{
+          font-size: large;
+        }
+      </style>
+
+
+    </head>
+
+    <body>
+      <div>
+
+
+          <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <br><br>
+              <div class="row">
+                <div class="col-sm-7">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Day Logger</a>
+              </div>
+              
+              </div>
+
+              
+               <form action="/login" method="post">
+                 <div class="col-sm-2">
+                    <div class="form-group row">
+                       <!-- <label for="exampleInputEmail1">Email address</label> -->
+                        <input type="email" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                    
+                    </div>
+                 </div>  
+                
+                 <div class="col-sm-2">
+                    <div class="form-group">
+                      <!-- <label for="exampleInputPassword1">Password</label> -->
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <br>
+                        <!-- <small id="emailHelp" class="form-text text-muted"><a href="#">Forgot your password?</a></small> -->
+                    </div>  
+                 </div>
+                 <div class="col-sm-1">
+                    <button type="submit" name="login" class="btn btn-primary">Login</button>
+                 </div>
+                </form> 
+              </div>
+
+
+            </div>
+            
+          </nav>
+
+          <div class="container-fluid">
+
+            <br>
+          
+
+          <br><br>
+
+          <div class="col-sm-7" id="bodyset"><h2>Day Logger, an application to plan your day and write down how your day went.</h2>
+            <br><br>
+            <p>Register and get started right away.</p>
+            <p>Create To-Do-List to organise and manage your tasks efficiently.</p>
+            <p>Write down your thoughts and how your day went in the Daily Journal.</p>
+          
+          </div>
+
+          <div class="col-sm-4">
+           <form action="/register" method="post" id="formsetting">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <!--<label for="inputEmail4">Email</label>-->
+                <input type="text" name="fName" class="form-control input-lg" id="inputFirstName4" required placeholder="First Name">
+              </div>
+              <div class="form-group col-md-6">
+                <!--<label for="inputPassword4">Password</label>-->
+                <input type="text" name="lName" class="form-control input-lg" id="inputLastName4" required placeholder="Last Name">
+              </div>
+            </div>
+            <div class="form-group col-md-12">
+              <input type="email" name="username" class="form-control input-lg" id="inputEmail4" required placeholder="Email" autocomplete="new-password">
+            </div>
+            <div class="form-group col-md-12">
+              <input type="password" name="password" class="form-control input-lg" id="inputPassword4" required placeholder="New Password" autocomplete="new-password">
+            </div>
+            <div class="form-group col-md-12">
+                <input type="password" name="recheckPassword" class="form-control input-lg" id="inputPassword5" required placeholder="Re-enter Password">
+              </div>
+            
+            <div class="form-row col-md-12">
+            <button type="submit" name="register" class="btn btn-primary" id="btnRegister">Register</button>
+            </div>
+          </form>
+          </div>
+
+          <div class="col-sm-1"></div>
+
+        </div>
+    
+      </div>
+
+
+
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+         $(function () {
+          $("#btnRegister").click(function () {
+            var password = $("#inputPassword4").val();
+            var confirmPassword = $("#inputPassword5").val();
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        });
+    });
+      </script>
+    </body>
+</html>
